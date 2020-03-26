@@ -15,6 +15,7 @@ class GuestBookList extends Component {
                            <div key={index}>
                                <p>Guest: {guest.guestName}</p>
                                <p>Phone Number: {guest.guestPhoneNumber}</p>
+                               <hr/>
                            </div>
                        )
                    }

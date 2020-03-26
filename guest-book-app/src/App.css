@@ -2,9 +2,40 @@ body{
   background-color: rgb(158, 154, 154);
   color: rgb(99, 23, 99);
   text-align: center;
+  font-family: serif;
 }
 
 .container{
   display: grid;
   grid-template-columns: auto auto auto;
+}
+
+.inputs{
+  background-color: rgb(99, 23, 99);
+  color: white;
+}
+
+button{
+  background-color: rgb(99, 23, 99);
+  color: white;
+  height: 25px;
+  font-family: serif;
+  font-size: 17px;
+}
+
+.border{
+  border: 3px solid rgb(99, 23, 99);
+}
+
+legend{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+hr{
+  border: 2px solid rgb(99, 23, 99);
+}
+
+.formInput{
+  padding: 3%;
 }
