@@ -27,7 +27,7 @@ class GuestBookForm extends Component {
     handleSubmission = (event) => {
         event.preventDefault();
         
-        //update and add to rsvp array using conditional
+        //update and add to either array using conditional
         if (this.state.guestRsvpStatus === true) {
             this.state.guestBookListRsvp.push(
                 {
