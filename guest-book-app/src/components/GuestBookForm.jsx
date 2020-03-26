@@ -33,7 +33,21 @@ class GuestBookForm extends Component {
                 guestPhoneNumber:this.state.guestPhoneNumber
             }
         )
-        
+        //update and add to rsvp array using conditional
+        if(this.state.guestRsvpStatus===true){
+            this.state.guestBookListRsvp.push(
+                {
+                    guestName:this.state.guestName,
+                    guestPhoneNumber:this.state.guestPhoneNumber 
+                }
+            )
+        }
+        //globally update status
+        this.setState(
+            {
+                guestBookListRsvp: this.state.guestBookListRsvp
+            }
+        )
         //gloabally update status
         this.setState(
             {
@@ -47,7 +61,7 @@ class GuestBookForm extends Component {
         // console.log(`Submission ${this.state.guestRsvpStatus}`)
             
         //callback function
-        this.props.addGuest(this.state.guestBookList)
+        this.props.addGuest(this.state.guestBookList, this.state.guestBookListRsvp)
     }
 
     render() { 
