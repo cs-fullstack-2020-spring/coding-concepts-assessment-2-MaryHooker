@@ -6,7 +6,9 @@ class GuestBookForm extends Component {
         this.state = { 
             guestName: '',
             guestPhoneNumber:'',
+            guestBookList:[],
             guestRsvpStatus: false,
+            guestBookListRsvp:[],
          }
     }
 
@@ -18,27 +20,34 @@ class GuestBookForm extends Component {
             this.setState({guestPhoneNumber:event.target.value})
         } else if(event.target.name==='rsvp'){
             this.setState({guestRsvpStatus:true})
-        }
-        
+        } 
     }
 
     //function to run everytime button is pushed
     handleSubmission = (event) =>{
         event.preventDefault();
-
-        this.props.addGuest(
+        //push into above array
+        this.state.guestBookList.push(
             {
-                guestName: this.state.guestName,
-                guestPhoneNumber: this.state.guestPhoneNumber
-            },
-            // {
-            //     guestRsvpStatus:this.state.guestRsvpStatus
-            // }
+                guestName:this.state.guestName,
+                guestPhoneNumber:this.state.guestPhoneNumber
+            }
         )
-        //sanity
-        console.log(`Submission ${this.state.guestName}`)
-        console.log(`Submission ${this.state.guestPhoneNumber}`)
-        console.log(`Submission ${this.state.guestRsvpStatus}`)
+        
+        //gloabally update status
+        this.setState(
+            {
+                guestBookList: this.state.guestBookList
+            }
+        );
+        // //sanity
+        // console.log(this.state.guestBookList)
+        // console.log(`Submission ${this.state.guestName}`)
+        // console.log(`Submission ${this.state.guestPhoneNumber}`)
+        // console.log(`Submission ${this.state.guestRsvpStatus}`)
+            
+        //callback function
+        this.props.addGuest(this.state.guestBookList)
     }
 
     render() { 

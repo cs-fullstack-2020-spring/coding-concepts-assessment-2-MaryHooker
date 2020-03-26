@@ -1,42 +1,26 @@
 import React, { Component } from 'react';
 import GuestBookForm from './GuestBookForm';
 import GuestBookList from './GuestBookList';
-import GuestBookListRsvp from './GuestBookListRsvp';
+// import GuestBookListRsvp from './GuestBookListRsvp';
 
 class AppContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            guestBookList: [
-                {
-                    guestName: 'Mary',
-                    guestPhoneNumber: '',
-                },
-            ],
-            guestBookListRsvp: [],
+            guestBookList: [],
+            // guestBookListRsvp: [],
         }
     }
+    //callback function to update state of arrays
+    addGuest = (info) => {
 
-    addGuest = (info, rsvp) => {
-        // this.setState(
-        //     {
-        //         guestBookList:
-        //         {
-        //             guestName: info,
-        //             guestPhoneNumber: info,
-        //         }
-        //     }
-        // )
-        // this.setState(
-        //     {
-        //         guestBookListRsvp: rsvp
-        //     }
-        // )
-        //sanity
-        console.log(`callback function ${this.state.guestBookList.guestName}`)
+        this.setState({ guestBookList: info })
+
     }
 
     render() {
+        // //sanity
+        // console.log(this.state.guestBookList)
         return (
             <div>
                 <h1>Guest List Manager</h1>
@@ -44,10 +28,10 @@ class AppContainer extends Component {
                     <div>
                         <GuestBookForm addGuest={this.addGuest} />
                     </div>
-                    {/* <div>
+                    <div>
                         <GuestBookList guestBookList={this.state.guestBookList} />
                     </div>
-                    <div>
+                    {/* <div>
                         <GuestBookListRsvp guestBookListRsvp={this.state.guestBookListRsvp} />
                     </div> */}
                 </div>

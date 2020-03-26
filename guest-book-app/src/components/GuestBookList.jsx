@@ -10,7 +10,7 @@ class GuestBookList extends Component {
             <div>
                <h2>Waiting for response</h2>
                {
-                   this.props.GuestBookList.map((guest,index) =>{
+                   this.props.guestBookList.map((guest,index) =>{
                        return(
                            <div key={index}>
                                <p>Guest: {guest.guestName}</p>
