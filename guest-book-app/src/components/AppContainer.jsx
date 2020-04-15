@@ -6,11 +6,34 @@ import GuestBookListRsvp from './GuestBookListRsvp';
 class AppContainer extends Component {
     constructor(props) {
         super(props);
+        //set initial state
         this.state = {
-            guestBookList: [],
-            guestBookListRsvp: [],
+            guestBookList: [], //array to hold form responses for no RSVP
+            guestBookListRsvp: [],//array to hold form responses for RSVP
         }
     }
+
+    // //test mapping in child components without form by adding mock data to array
+    // componentDidMount(){
+    //     this.state.guestBookList.push(
+    //         {
+    //             guestName: 'Mary',
+    //             guestPhoneNumber: 9014969595,
+    //         }
+    //     )
+    //     //update state globally
+    //     this.setState({guestBookList:this.state.guestBookList})
+
+    //     this.state.guestBookListRsvp.push(
+    //         {
+    //             guestName: 'Charlie',
+    //             guestPhoneNumber: 9016548965,
+    //         }
+    //     )
+    //      //update state globally 
+    //      this.setState({guestBookListRsvp:this.state.guestBookListRsvp})
+    // }
+    
     //callback function to update state of arrays
     addGuest = (info, rsvp) => {
         //update above array
@@ -18,7 +41,7 @@ class AppContainer extends Component {
         //update above array
         this.setState({guestBookListRsvp: rsvp})
     }
-
+    //display title, form for adding guest and two lists (3 columns)
     render() {
         // //sanity
         // console.log(this.state.guestBookList)
